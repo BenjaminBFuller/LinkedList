@@ -1,9 +1,13 @@
 public class Node
 {
+    //Previous Node in the list
     private Node prevNode;
+    //Next Node in the list
     private Node nextNode;
+    //Value of this node
     private String value;
 
+    //Various constructors of different combinations of values.
     public Node(String valueObject) {
         prevNode = null;
         nextNode = null;
@@ -22,6 +26,7 @@ public class Node
         value = valueObject;
     }
 
+    //Set and get functions to access and change the nodes variables
     public void setNextNode(Node nextNode) {
         this.nextNode = nextNode;
     }
