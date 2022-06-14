@@ -15,11 +15,11 @@ public class LinkedList {
         if (item == null) { System.out.print("The first argument for addLast() is null."); }
         if (!isEmpty()) {
             Node prev = last;
-            last = new Node(item, null);
-            prev.next = last;
+            last = new Node(item);
+            prev.setNextNode(last);
         }
         else {
-            last = new Node(item, null);
+            last = new Node(item);
             first = last;
         }
         N++;
