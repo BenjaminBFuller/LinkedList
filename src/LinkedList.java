@@ -259,11 +259,11 @@ public class LinkedList {
     }
 
     // retrieves and returns but does not remove head node; returns null if empty
-    public Node peek(){
+    public String peek(){
         if(isEmpty())
             return null;
         else
-            return first;
+            return first.getValue();
     }
 
     public int size() {
