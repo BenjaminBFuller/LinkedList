@@ -1,3 +1,4 @@
+import java.util.*;
 import java.util.Collection;
 import java.util.NoSuchElementException;
 
@@ -240,6 +241,7 @@ public class LinkedList {
     // clear the linked list - java has automatic garbage collection; setting head to null clears list
     public void clear(){
         first = null;
+        N = 0;
     }
 
     //sets the value of the node at the specified index to the specified value, returns the old value
@@ -280,5 +282,16 @@ public class LinkedList {
             currNode = currNode.getNextNode();
         }
         return currNode;
+    }
+
+    public Object[] toArray() {
+        List<Node> temp = new ArrayList<>();
+        Node iterator = first;
+        while (iterator != null) {
+            temp.add(iterator);
+            iterator = iterator.getNextNode();
+        }
+        temp.forEach(System.out::println);
+    //return temp;
     }
 }
