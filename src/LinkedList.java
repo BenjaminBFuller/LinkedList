@@ -239,6 +239,13 @@ public class LinkedList {
         currNode.setValue(item);
         return prevValue;
     }
+
+    // gets/returns the value at the given element
+    public String get(int index){
+        Node currNode = this.goToIndex(index);
+        return currNode.getValue();
+    }
+
     public int size() {
         return N;
     }

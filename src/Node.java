@@ -1,9 +1,9 @@
 public class Node
 {
     //Previous Node in the list
-    private Node prevNode;
+    public Node prevNode;
     //Next Node in the list
-    private Node nextNode;
+    public Node nextNode;
     //Value of this node
     private String value;
 
