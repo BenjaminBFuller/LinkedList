@@ -284,14 +284,13 @@ public class LinkedList {
         return currNode;
     }
 
-    public Object[] toArray() {
-        List<Node> temp = new ArrayList<>();
+    public String[] toArray() {
+        String[] temp = new String[N];
         Node iterator = first;
-        while (iterator != null) {
-            temp.add(iterator);
+        for (int i=0; i < N; i++) {
+            temp[i] = iterator.getValue();
             iterator = iterator.getNextNode();
         }
-        temp.forEach(System.out::println);
-    //return temp;
+        return temp;
     }
 }
