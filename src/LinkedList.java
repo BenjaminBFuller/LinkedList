@@ -12,6 +12,12 @@ public class LinkedList {
         N = 0;
     }
 
+    public LinkedList(Collection collection){
+        first = null;
+        last = null;
+        N = 0;
+        addAll(collection);
+    }
     public Boolean add(String item) {
         if (!isEmpty()) {
             Node prev = last;
