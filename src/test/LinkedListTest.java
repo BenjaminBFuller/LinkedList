@@ -23,13 +23,13 @@ class LinkedListTest {
         test.add("Obi");
         test.add("Wan");
         test.add("Kenobi");
-        assertSame(test.toArray(), strings);
+        assertArrayEquals(test.toArray(), strings);
     }
     @Test
     void givenCollectionOfStrings_whenConstructor_thenMakeLinkedListConsistingOfCollection(){
         ArrayList<String> stringArray= new ArrayList<>(List.of("1","2", "3", "4", "5", "6", "7", "8", "9", "10"));
         LinkedList test = new LinkedList(stringArray);
-        assertSame(test.toArray(), stringArray.toArray());
+        assertArrayEquals(test.toArray(), stringArray.toArray());
     }
 
     @Test
@@ -39,9 +39,23 @@ class LinkedListTest {
         assertSame(test.get(4),"4th");
     }
     @Test
-    void addAll() {
+    void givenCollectionOfStrings_whenAddAll_thenAddAllToLinkedList() {
+        ArrayList<String> stringArray= new ArrayList<>(List.of("1","2", "3", "4", "5", "6", "7", "8", "9", "10"));
+        LinkedList test = new LinkedList();
+        test.addAll(stringArray);
+        assertArrayEquals(test.toArray(), stringArray.toArray());
     }
 
+    @Test
+    void givenCollectionOfStringsAndIndex_whenAddAll_thenAddAllToLinkedListAtIndex(){
+        ArrayList<String> stringArray= new ArrayList<>(List.of("1","2", "3", "4", "5", "6", "7", "8", "9", "10"));
+        LinkedList test = new LinkedList();
+        test.add("0");
+        test.add("11");
+        test.addAll(1,stringArray);
+        String[] arrayCheck = new String[]{"0","1","2", "3", "4", "5", "6", "7", "8", "9", "10","11"};
+        assertArrayEquals(test.toArray(), arrayCheck);
+    }
     @Test
     void addFirst() {
     }
@@ -124,7 +138,6 @@ class LinkedListTest {
 
     LinkedList createTestLinkedList(){
         ArrayList<String> stringArray= new ArrayList<>(List.of("1","2", "3", "4", "5", "6", "7", "8", "9", "10"));
-        LinkedList test = new LinkedList(stringArray);
-        return test;
+        return new LinkedList(stringArray);
     }
 }
