@@ -1,4 +1,3 @@
-import java.io.*;
 import java.util.Collection;
 import java.util.NoSuchElementException;
 
@@ -232,6 +231,11 @@ public class LinkedList {
         return false;
     }
 
+    // clear the linked list - java has automatic garbage collection; setting head to null clears list
+    public void clear(){
+        first = null;
+    }
+
     //sets the value of the node at the specified index to the specified value, returns the old value
     public String set(int index, String item){
         Node currNode = this.goToIndex(index);
@@ -244,6 +248,14 @@ public class LinkedList {
     public String get(int index){
         Node currNode = this.goToIndex(index);
         return currNode.getValue();
+    }
+
+    // retrieves and returns but does not remove head node; returns null if empty
+    public Node peek(){
+        if(isEmpty())
+            return null;
+        else
+            return first;
     }
 
     public int size() {
