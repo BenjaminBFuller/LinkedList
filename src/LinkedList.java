@@ -162,8 +162,10 @@ public class LinkedList {
     //removes the node at the specified index and returns its value
     public String remove(int index){
         Node currNode = this.goToIndex(index);
-        currNode.getPrevNode().setNextNode(currNode.getNextNode());
-        currNode.getNextNode().setPrevNode(currNode.getPrevNode());
+        if(currNode.getPrevNode()!= null)
+            currNode.getPrevNode().setNextNode(currNode.getNextNode());
+        if(currNode.getNextNode()!= null)
+            currNode.getNextNode().setPrevNode(currNode.getPrevNode());
         if (currNode == first)
             first = currNode.getNextNode();
         if (currNode == last)

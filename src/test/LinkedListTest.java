@@ -38,6 +38,13 @@ class LinkedListTest {
         test.add(4,"4th");
         assertSame(test.get(4),"4th");
     }
+
+    @Test
+    void givenInvalidIndex_whenAddWithIndex_thenThrowError(){
+        LinkedList test = createTestLinkedList();
+        assertThrows(IndexOutOfBoundsException.class, () -> test.add(20,"4th"));
+
+    }
     @Test
     void givenCollectionOfStrings_whenAddAll_thenAddAllToLinkedList() {
         ArrayList<String> stringArray= new ArrayList<>(List.of("1","2", "3", "4", "5", "6", "7", "8", "9", "10"));
@@ -96,15 +103,27 @@ class LinkedListTest {
     }
 
     @Test
-    void remove() {
+    void givenTestLinkedList_whenRemove_thenRemoveSuccessfully() {
+        LinkedList test = createTestLinkedList();
+        test.remove();
+        String[] arrayCheck = new String[]{"2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        assertArrayEquals(test.toArray(), arrayCheck);
     }
 
     @Test
-    void testRemove() {
+    void givenTestLinkedList_whenRemoveAtIndex_thenRemoveSuccessfully(){
+        LinkedList test = createTestLinkedList();
+        test.remove(5);
+        String[] arrayCheck = new String[]{"1","2", "3", "4", "5", "7", "8", "9", "10"};
+        assertArrayEquals(test.toArray(), arrayCheck);
     }
 
     @Test
-    void testRemove1() {
+    void givenTestLinkedList_whenRemoveString_thenRemoveSuccessfully() {
+        LinkedList test = createTestLinkedList();
+        test.remove("8");
+        String[] arrayCheck = new String[]{"1","2", "3", "4", "5","6", "7", "9", "10"};
+        assertArrayEquals(test.toArray(), arrayCheck);
     }
 
     @Test
@@ -116,7 +135,11 @@ class LinkedListTest {
     }
 
     @Test
-    void removeLast() {
+    void givenTestLinkedList_whenRemoveLast_thenRemoveSuccessfully() {
+        LinkedList test = createTestLinkedList();
+        test.removeLast();
+        String[] arrayCheck = new String[]{"1","2", "3", "4", "5", "6", "7", "8", "9"};
+        assertArrayEquals(test.toArray(), arrayCheck);
     }
 
     @Test
@@ -154,7 +177,7 @@ class LinkedListTest {
     }
 
     @Test
-    void givenLinkedListWithAddedThenDeletedItem_whenisEmpty_thenReturnTrue() {
+    void givenLinkedListWithAddedThenDeletedItem_whenIsEmpty_thenReturnTrue() {
         LinkedList test = new LinkedList();
         test.add("Testing...");
         test.remove(0);
@@ -162,7 +185,7 @@ class LinkedListTest {
     }
 
     LinkedList createTestLinkedList(){
-        ArrayList<String> stringArray= new ArrayList<>(List.of("1","2", "3", "4", "5", "6", "7", "8", "9", "10"));
+        ArrayList<String> stringArray= new ArrayList<>(List.of("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"));
         return new LinkedList(stringArray);
     }
 }
