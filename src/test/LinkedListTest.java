@@ -57,7 +57,10 @@ class LinkedListTest {
         assertArrayEquals(test.toArray(), arrayCheck);
     }
     @Test
-    void addFirst() {
+    void givenString_whenaddFirst_thenAddToFront() {
+        LinkedList test = new LinkedList();
+        test.addFirst("To the front!");
+        assertSame(test.get(0), "To the front!");
     }
 
     @Test
@@ -129,11 +132,33 @@ class LinkedListTest {
     }
 
     @Test
-    void size() {
+    void givenListSize0_whenTestSize0_returnTrue() {
+        LinkedList test = new LinkedList();
+        assertEquals(test.size(), 0);
     }
 
     @Test
-    void isEmpty() {
+    void givenListSizeN_whenTestSizeN_returnTrue() {
+        LinkedList test = new LinkedList();
+        test.add("Should");
+        test.add("be");
+        test.add("size");
+        test.add("4");
+        assertEquals(test.size(), 4);
+    }
+
+    @Test
+    void givenEmptyLinkedList_whenisEmpty_thenReturnTrue() {
+        LinkedList test = new LinkedList();
+        assertTrue(test.isEmpty());
+    }
+
+    @Test
+    void givenLinkedListWithAddedThenDeletedItem_whenisEmpty_thenReturnTrue() {
+        LinkedList test = new LinkedList();
+        test.add("Testing...");
+        test.remove(0);
+        assertTrue(test.isEmpty());
     }
 
     LinkedList createTestLinkedList(){
