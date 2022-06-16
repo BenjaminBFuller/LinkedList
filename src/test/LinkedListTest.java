@@ -151,7 +151,9 @@ class LinkedListTest {
     }
 
     @Test
-    void get() {
+    void givenTestLinkedList_whengetForNIndex_returnNIndex() {
+        LinkedList test = createTestLinkedList();
+        assertEquals(test.get(3),"4");
     }
 
     @Test
